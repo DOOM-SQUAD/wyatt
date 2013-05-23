@@ -4,7 +4,7 @@ module Wyatt
 
   module Configuration
 
-    CORE_SETTINGS = 'core'
+    CORE_SETTINGS = :core
 
     def self.load!(file_path)
       @file_path     = file_path
