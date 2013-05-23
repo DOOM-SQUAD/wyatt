@@ -6,6 +6,8 @@ require_relative 'wyatt/configuration'
 require_relative 'wyatt/request'
 require_relative 'wyatt/response'
 
+require_relative 'wyatt/railtie' if defined? Rails::Railtie
+
 module Wyatt
 
   def self.configured?

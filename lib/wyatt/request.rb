@@ -20,8 +20,6 @@ module Wyatt
         conn.request  :json
         conn.response :json, :content_type => /\bjson$/
         conn.adapter  :net_http
-
-        conn.headers = { :authorization => config.auth_string }
       end
     end
 
