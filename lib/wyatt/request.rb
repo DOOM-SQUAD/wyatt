@@ -4,7 +4,7 @@ module Wyatt
     attr_reader   :http_method, :uri, :params, :body
     attr_accessor :timeout, :open_timeout
 
-    def initialize(http_method, uri, params, body, options)
+    def initialize(http_method, uri, params, body, options={})
       @http_method  = http_method
       @uri          = uri
       @params       = params || {}
