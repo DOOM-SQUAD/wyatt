@@ -11,7 +11,7 @@ require_relative 'wyatt/railtie' if defined? Rails::Railtie
 module Wyatt
 
   def self.configured?
-    !!Wyatt::Configuration.core_settings    
+    !!Wyatt::Configuration.raw_settings
   end
 
 end
