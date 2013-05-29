@@ -3,23 +3,25 @@ require 'yaml'
 module Wyatt
 
   module Configuration
+    extend self
 
     CORE_SETTINGS = :core
 
-    def self.load!(file_path)
+    def load!(file_path)
       @file_path     = file_path
-      @core_settings = Configuration.raw_settings[CORE_SETTINGS]
+      @raw_settings  = Configuration.parse_settings
+      @core_settings = @raw_settings[CORE_SETTINGS]
     end
 
-    def self.raw_settings
+    def parse_settings
       YAML::load(IO.read(Configuration.file_path))
     end
 
-    def self.file_path
+    def file_path
       @file_path
     end
 
-    def self.core_settings
+    def core_settings
       @core_settings
     end
 

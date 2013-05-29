@@ -6,11 +6,11 @@ class Railtie < Rails::Railtie
   end
 
   rake_tasks do
-    load "nss/rails_tasks.rb"
+    load "wyatt/rails_tasks.rb"
   end
 
   config.wyatt = ::Wyatt::Configuration
-  config_file  = Rails.root.join('config', 'nss.yml')
+  config_file  = Rails.root.join('config', 'wyatt.yml')
 
   initializer "wyatt.load-config" do
     if config_file.file?
