@@ -13,6 +13,10 @@ module Wyatt
       @core_settings = @raw_settings[CORE_SETTINGS]
     end
 
+    def raw_settings
+      @raw_settings
+    end
+
     def parse_settings
       YAML::load(IO.read(Configuration.file_path))
     end
