@@ -1,16 +1,17 @@
 require 'spec_helper'
 
-describe Wyatt::Request do
-  describe '#new' do
-    let(:http_method) { 'get' }
-    let(:uri) { 'www.example.com' }
-    let(:body) { 'test' }
-    let(:params) { { arbitrary: 'value' } }
-    let(:timeout) { 2 }
+describe Wyatt::Core::Request do
+
+  describe '#initialize' do
+    let(:http_method)  { 'get' }
+    let(:url)          { 'www.example.com' }
+    let(:body)         { 'test' }
+    let(:params)       { { arbitrary: 'value' } }
+    let(:timeout)      { 2 }
     let(:open_timeout) { 3 }
-    let(:request) do 
-      Wyatt::Request.new(
-        http_method, uri, params, 
+    let(:request) do
+      Wyatt::Core::Request.new(
+        http_method, url, params, 
         body, timeout: timeout, open_timeout: open_timeout
       )
     end 
@@ -19,8 +20,8 @@ describe Wyatt::Request do
       request.http_method.should == http_method
     end
 
-    it "should initialize uri" do
-      request.uri.should == uri
+    it "should initialize url" do
+      request.url.should == url
     end
 
     it "should initialize body" do
@@ -39,4 +40,5 @@ describe Wyatt::Request do
       request.open_timeout.should == open_timeout
     end
   end
+
 end

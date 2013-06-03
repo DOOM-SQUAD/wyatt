@@ -1,23 +1,27 @@
 module Wyatt
 
-  class Response
+  module Core
 
-    attr_reader :faraday_response
+    class Response
 
-    def initialize(faraday_response)
-      @faraday_response = faraday_response
-    end
+      attr_reader :faraday_response
 
-    def body
-      faraday_response.body
-    end
+      def initialize(faraday_response)
+        @faraday_response = faraday_response
+      end
 
-    def status
-      faraday_response.status
-    end
+      def body
+        faraday_response.body
+      end
 
-    def success?
-      (200..299).include?(status)
+      def status
+        faraday_response.status
+      end
+
+      def success?
+        (200..299).include?(status)
+      end
+
     end
 
   end

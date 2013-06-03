@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Wyatt::Response do
+describe Wyatt::Core::Response do
 
   let(:faraday_body)     { {} }
   let(:faraday_status)   { 200 }
   let(:faraday_response) { mock(:body=>faraday_body, :status=>faraday_status) }
-  let(:response)         { Wyatt::Response.new(faraday_response) }
+  let(:response)         { Wyatt::Core::Response.new(faraday_response) }
 
   describe '#initialize' do
 
