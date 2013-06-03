@@ -3,6 +3,7 @@ module Wyatt
   module Core
 
     class Request
+
       attr_reader   :http_method, :url, :params, :body
       attr_accessor :timeout, :open_timeout
 

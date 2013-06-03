@@ -10,8 +10,9 @@ require_relative 'wyatt/response'
 require_relative 'wyatt/railtie' if defined? Rails::Railtie
 
 module Wyatt
+  extend self
 
-  def self.configured?
+  def configured?
     !!Wyatt::Core::Configuration.raw_settings
   end
 
@@ -21,8 +22,7 @@ module Wyatt
   end
 
   def registered_plugins
-    # scrape top-level keys, ignoring core
-    # determine existance of constants
+    Wyatt.constants - [:Core]
   end
 
 end
