@@ -17,12 +17,16 @@ module Wyatt
   end
 
   def configured_plugins
-    # call registered_plugins
-    # query each constant for .configured?
+    registered_plugins.map do |plugin|
+      plugin.configured?
+    end
   end
 
   def registered_plugins
-    Wyatt.constants - [:Core]
+    plugin_symbols = Wyatt.constants - [:Core]
+    plugin_symbols.map do |symbol|
+      Wyatt.const_get symbol
+    end
   end
 
 end
