@@ -13,8 +13,8 @@ module Wyatt
         @url          = url
         @params       = params || {}
         @body         = body
-        @timeout      = options[:timeout]
-        @open_timeout = options[:open_timeout]
+        @timeout      = options[:timeout]      || 0
+        @open_timeout = options[:open_timeout] || 0
       end
 
       # TODO (jchristie+nilmethod) add all request attributes
@@ -28,7 +28,7 @@ module Wyatt
       private
 
       def connection
-        Faraday.new(url: config.service_root_url) do |conn|
+        Faraday.new(url: url) do |conn|
           conn.request  :json
           conn.response :json, :content_type => /\bjson$/
           conn.adapter  :net_http
