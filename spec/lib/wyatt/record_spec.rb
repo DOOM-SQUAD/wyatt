@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Wyatt::Record do
+describe Wyatt::Core::Record do
   
   describe ".add_field_to_class" do
 
-    let(:record) { Wyatt::Record.new }
+    let(:record) { Wyatt::Core::Record.new }
 
     let(:field_name) { "foo" }
     let(:type)       { String }
@@ -18,7 +18,7 @@ describe Wyatt::Record do
     let(:error) { Wyatt::Exceptions::InvalidType }
 
     before do
-      Wyatt::Record.add_field_to_class(field_name, type)
+      Wyatt::Core::Record.add_field_to_class(field_name, type)
     end
 
     it "should respond to a new accessor" do
