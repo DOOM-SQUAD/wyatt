@@ -7,12 +7,12 @@ module Wyatt
       def self.add_field_to_class(field_name, type)
         class_eval <<-RUBY
           def #{field_name}
-            @field_name
+            @#{field_name}
           end
 
           def #{field_name}=(value)
             raise_#{field_name}_type_exception if value.class != #{type}
-            @field_name = value 
+            @#{field_name} = value 
           end
 
           private
