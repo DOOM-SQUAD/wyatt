@@ -3,6 +3,7 @@ Dir[File.join(ROOT, 'spec/support/**/*.rb')].each {|f| require f}
 $LOAD_PATH.unshift(File.expand_path('lib', ROOT))
 
 require 'wyatt'
+require 'pry'
 
 RSpec.configure do |config|
     config.mock_with :rspec

@@ -9,7 +9,9 @@ require_relative 'wyatt/configuration'
 require_relative 'wyatt/request'
 require_relative 'wyatt/response'
 
-require_relative 'wyatt/record'
+require_relative 'wyatt/orm/record'
+require_relative 'wyatt/orm/record_class_builder'
+require_relative 'wyatt/orm/record_field_builder'
 
 require_relative 'wyatt/railtie' if defined? Rails::Railtie
 
